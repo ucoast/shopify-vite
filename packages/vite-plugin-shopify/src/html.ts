@@ -199,8 +199,8 @@ const viteTagSnippetDev = (assetHost: string, entrypointsDir: string, reactPlugi
     assign is_css = true
   endif
 %}${reactPlugin === undefined
-  ? ''
-  : `
+    ? ''
+    : `
 <script src="${assetHost}/@id/__x00__vite-plugin-shopify:react-refresh" type="module"></script>`}
 <script src="${assetHost}/@vite/client" type="module"></script>
 {% if is_css == true %}
