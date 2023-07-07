@@ -176,14 +176,7 @@ const scriptTag = (fileName: string): string =>
 
 // Generate a production stylesheet link tag for a style asset
 const stylesheetTag = (fileName: string): string => {
-  if (!fileName.includes('.s-up') && !fileName.includes('.m-up')) {
-    return `{{ '${fileName}' | asset_url | split: '?' | first | stylesheet_tag: preload: preload_stylesheet }}`
-  } else if (fileName.includes('.s-up')) {
-    return `{{ '${fileName}' | asset_url | split: '?' | first | stylesheet_tag: media: '(min-width: 750px)' }}`
-  } else if (fileName.includes('.m-up')) {
-    return `{{ '${fileName}' | asset_url | split: '?' | first | stylesheet_tag: media: '(min-width: 990px)' }}`
-  }
-  throw new Error(`Unexpected stylesheet file name: ${fileName}`)
+  return `{{- '${fileName}' | asset_url | split: '?' | first -}}`
 }
 
 // Generate vite-tag snippet for development
